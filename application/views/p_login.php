@@ -35,6 +35,7 @@
                   } else {
                      header('location:'.base_url().'login');
                   }
+                 // $this->db_model->getLoginData($name, $pass);
               }
             ?>
             <form class="form-horizontal" method="post" action=''>
