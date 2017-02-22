@@ -28,14 +28,7 @@
               if(isset($_POST['mask'])){
                   $name = $this->input->post('in_name');
                   $pass = $this->input->post('in_pass');
-                  if($name=='admin' && $pass='123456'){
-                    header('location:'.base_url().'admin');
-                  } elseif($name=='user' && $pass='123456'){
-                     header('location:'.base_url().'user');
-                  } else {
-                     header('location:'.base_url().'login');
-                  }
-                 // $this->db_model->getLoginData($name, $pass);
+                  $this->db_model->getLoginData($name, $pass);
               }
             ?>
             <form class="form-horizontal" method="post" action=''>
@@ -48,10 +41,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" name="in_pass" class="col-sm-2 control-label">Password</label>
+                  <label for="inputPassword3"  class="col-sm-2 control-label">Password</label>
 
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    <input type="password"  name="in_pass" class="form-control" id="inputPassword3" placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
