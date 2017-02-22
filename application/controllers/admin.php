@@ -3,8 +3,13 @@
 class Admin extends CI_Controller {
 
 	public function index()
-	{
-		$this->load->view('p_amin');
+	{ 
+    $sess = $this->session->userdata('name');
+    if($sess == 'admin'){
+      $this->load->view("p_amin");
+    } else {
+      header('location:'.base_url().'login'); 
+    }
 	}
 }
 
