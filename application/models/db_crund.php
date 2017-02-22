@@ -1,25 +1,31 @@
-<?php if (!defined('BASEPATH')) exit ('No dererct!');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class DB_model extends CI_Model{
+class Db_crund extends CI_Model{
+  protected $table = 'users';
+  public function __construct() {
+    parent::__construct();
+  }
   public function get_record(){
-    $query = $this->db->get('users');
-    return $query->result();
+    $this->db->select('name, password');
+    return $this->db->get($this->table)->result_array();
   }
-  public function add_record($data){
+  public function add_user($name, $pass){
+    $data['name'] = $name;
+    var_dump($name);die;
+    $data['password']= md5($pass);
     $this->db->insert('users', $data);
-    return;
+    var_dump($data);die;
+    $this->load->view('p_user');
   }
-  public function update_record($data){
-    $this->db->where('name','abc');
-    $this->db->update('users', $data);
-  }
-  public function delete_row(){
-    
-  }
+//  public function add_record($data){
+//    $this->db->insert('users', $data);
+//    return;
+//  }
+//  public function update_record($data){
+//    $this->db->where('name','abc');
+//    $this->db->update('users', $data);
+//  }
+//  public function delete_row(){
+//    
+//  }
 }
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
