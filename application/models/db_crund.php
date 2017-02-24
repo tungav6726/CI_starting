@@ -9,13 +9,18 @@ class Db_crund extends CI_Model{
     $this->db->select('name, password');
     return $this->db->get($this->table)->result_array();
   }
-  public function add_user($name, $pass){
-    $data['name'] = $name;
-    var_dump($name);die;
-    $data['password']= md5($pass);
-    $this->db->insert('users', $data);
-    var_dump($data);die;
-    $this->load->view('p_user');
+  public function add_user($data){
+   $this->db->insert('users', $data);
+   return TRUE;
+  }
+   public function delete_user($name){
+    $this->db->where('name',$name);
+    $this->db->delete('users');
+  }
+  
+  public function get_data($id){
+     $this->db->select('name, password');
+     return $this->db->get($this->table)->where('$id')->result_array();
   }
 //  public function add_record($data){
 //    $this->db->insert('users', $data);

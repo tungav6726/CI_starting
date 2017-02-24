@@ -75,9 +75,72 @@
         <!-- ./col -->
       </div>
       <div class="row">
+        
         <section class="col-lg-5 connectedSortable ui-sortable"> 
          <button type="submit" class="btn btn-info pull-center" onclick="window.location='<?php echo base_url()."login/out";?>'">Logout</button> <hr>
-        <button type="submit" class="btn btn-info pull-center" onclick="window.location='<?php echo base_url()."login/show_data";?>'">Show data</button><hr>
+         <button type="submit" class="btn btn-info pull-center" onclick="window.location='<?php echo base_url()."login/show_data";?>'">Show data</button><hr>
+         <form method="post" action="<?php echo base_url()."login/delete_data/";?>">
+           <button type="submit" class="btn btn-info pull-center" >Delete name</button>   
+         <input type="text" name="abc" class="form-control"  >
+         </form>
+         
+         <div class="box box-info">
+            
+            <form class="form-horizontal" method="post" >
+               <div class="box-header with-border">
+               <h3 class="box-title">Id for edit</h3>
+            </div>
+               <div class="form-group">
+                  <label  class="col-sm-2 control-label">ID</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="id_update"  class="form-control" placeholder="id">
+                  </div>
+                </div>
+               <div class="box-footer">
+                 <a class="btn btn-info pull-right" href="<?php echo site_url('login/show_id/3');?>">Show</a>
+              </div>
+            </form>
+          </div>
+       <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Form edit</h3>
+            </div>
+            <form class="form-horizontal" method="post" action="<?php echo base_url(). "login/add_user" ?>">
+              <div class="box-body">
+               
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Name</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" name="" class="form-control" id="inputEmail3" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" name = "" class="col-sm-2 control-label">Password</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" name="add" class="btn btn-info pull-right">Add</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+         </div>
+              
+            
+          </div>
+         
+<hr>
         </section>
       </div>
              <section class="col-lg-5 connectedSortable ui-sortable">
@@ -97,20 +160,18 @@
         $this->db_crund->add_user($name, $pass);
       }  
       ?>
-      
-   <div class="box box-info">
+       
+    <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title"> Form Add</h3>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="<?php echo base_url(). "login/add_user" ?>">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputEmail3" name = "name" class="col-sm-2 control-label">Name</label>
+                  <label  class="col-sm-2 control-label">Name</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Email">
                   </div>
                 </div>
                 <div class="form-group">
